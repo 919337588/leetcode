@@ -27,9 +27,7 @@ public class Solution {
              tomax(i-1,i+1,a,false,ov);
              tomax(i-1,i,a,false,ov);
         }
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(a,ov[0],ov[1]);
-        return stringBuilder.toString();
+        return s.substring(ov[0],ov[1]+ov[0]);
     }
     public void tomax(int b,int o,char[] a,boolean begin,int[] ov){
         if((b<0||o>=a.length||a[b]!=a[o])){
