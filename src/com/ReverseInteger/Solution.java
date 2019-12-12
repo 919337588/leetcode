@@ -22,11 +22,19 @@ class Solution {
     }
     public int reverse(int x) {
         StringBuilder stringBuilder=new StringBuilder(x>=0?"":"-");
+        if(x<0&&x==Math.abs(x)){
+            return 0;
+        }
         x=Math.abs(x);
-        while(x>10){
+
+        while(x>=10){
             stringBuilder.append(x%10);
             x=x/10;
         }
-       return Integer.valueOf(stringBuilder.append(x).toString());
+        Long a=Long.valueOf(stringBuilder.append(x).toString());
+        if(a>Integer.MAX_VALUE||a<Integer.MIN_VALUE){
+            return 0;
+        }
+        return a.intValue();
     }
 }
