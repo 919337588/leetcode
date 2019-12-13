@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
-        System.out.println(new Solution().myAtois("20000000000000000000"));
+        System.out.println('8'-'0');
+//        System.out.println(new Solution().myAtois("20000000000000000000"));
     }
     List<Character> as=Arrays.asList('+','-');
     List<Character> num=Arrays.asList('1','2','3','4','5','6','7','8','9','0');
