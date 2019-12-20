@@ -6,42 +6,40 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 class Solution {
     public static void main(String[] args) {
-        System.out.println(new Solution().threeSum(new int[]{3,0,-2,-1,1,2}));
+        System.out.println(new Solution().threeSum(new int[]{-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6}));
     }
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> re=new LinkedList<>();
-        HashMap<Integer,HashMap<Integer,Boolean>> qc=new HashMap<>();
         Arrays.sort(nums);
-        HashMap<Integer,Integer> map=new HashMap();
-        for (int i = 0; i <nums.length ; i++) {
-            map.put(nums[i],i);
-        }
-        for (int i = 1; i <nums.length-1 ; i++) {
-            for(int j=0;j<i;j++){
-                if(j>0&&nums[j]==nums[j-1]){
-                    continue;
-                }
-                Integer need=-1*(nums[j]+nums[i]);
-               Integer set=map.get(need);
-                if(set!=null&&set>i){
-                    HashMap<Integer,Boolean> integers = qc.get(nums[j]);
-                    if(integers==null){
-                        re.add(Arrays.asList(nums[j],nums[i],need));
-                        integers=new HashMap<>();
-                        integers.put(nums[i],true);
-                        qc.put(nums[j],integers);
-                    }else if(!integers.containsKey(nums[i])){
-                        re.add(Arrays.asList(nums[j],nums[i],need));
-                        integers.put(nums[i],true);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < nums.length - 2; i++){
+            if (i == 0 || i > 0 && nums[i] != nums[i-1]){//nums[i] != nums[i-1] 去重
+                int l = i+1, r = nums.length-1;
+                while(l < r){
+                    int sum = nums[i] + nums[l] + nums[r];
+                    if (sum == 0){
+                        res.add(Arrays.asList(nums[i], nums[l], nums[r]));
+                        while(l < r && nums[l] == nums[l+1]) l++;
+                        while(l < r && nums[r] == nums[r-1]) r--;//去重
+                        l++;
+                        r--;
+                    }else if (sum > 0){
+                        while(l < r && nums[r] == nums[r-1]) r--;//去重
+                        r--;
+                    }
+                    else {
+                        while(l < r && nums[l] == nums[l+1]) l++;//去重
+                        l++;
                     }
                 }
             }
         }
-        return re;
+        return res;
     }
+
 
 }
