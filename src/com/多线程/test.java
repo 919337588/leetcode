@@ -19,13 +19,23 @@ public class test   {
         if(before!=null&&Math.abs(before)==Math.abs(nums[i])){
             return Math.abs(before);
         }else{
-            if(nums[i]>0){
-                return find(nums,bjz,(i-bjz)/2,i,nums[i]);
-            }else if(nums[i]<0){
-                return find(nums,i,(bjy-i)/2,bjy,nums[i]);
-            }else{
-                return 0;
+            if(before==null){
+                if(nums[i]>0){
+                    return find(nums,bjz,(i-bjz)/2,i,nums[i]);
+                }else if(nums[i]<0){
+                    return find(nums,i,(bjy-i)/2,bjy,nums[i]);
+                }else{
+                    return 0;
+                }
             }
+            else{
+                if(nums[i]>before){
+                    return find(nums,bjz,(i-bjz)/2,i,before);
+                }else
+                    return find(nums,i,(bjy-i)/2,bjy,nums[i]);
+                }
+            }
+
         }
     }
-}
+
