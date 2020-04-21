@@ -15,6 +15,23 @@ public class test   {
 
         System.out.println("Hello World!");
     }
+
+    class Node{
+        Node na;
+        Node nb;
+        Node nc;
+
+    }
+    public static int get(Node node,int i){
+        if(node==null){
+            return i;
+        }
+        int a=get(node.na,i+1);
+        int b=get(node.nb,i+1);
+        int c=get(node.nc,i+1);
+        return Math.max(Math.max(b,a),c);
+    }
+
     public static int find(int[] nums,int bjz,int i,int bjy,Integer before){
         if(before!=null&&Math.abs(before)==Math.abs(nums[i])){
             return Math.abs(before);
@@ -37,5 +54,6 @@ public class test   {
             }
 
         }
+
     }
 
