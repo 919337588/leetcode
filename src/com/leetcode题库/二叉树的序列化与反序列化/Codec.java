@@ -1,12 +1,20 @@
-package com.剑指offer.序列化二叉树;
+package com.leetcode题库.二叉树的序列化与反序列化;
 
-import com.剑指offer.TreeNode;
-import sun.reflect.generics.tree.Tree;
+import com.leetcode题库.TreeNode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 public class Codec {
-
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         if(root==null){
@@ -29,7 +37,7 @@ public class Codec {
     }
 
 
-    public void level2(List<TreeNode> vector,String[] strings, int k,int i){
+    public void level2(List<TreeNode> vector, String[] strings, int k, int i){
         if(k>=vector.size()||i>=strings.length){
             return ;
         }
@@ -61,3 +69,7 @@ public class Codec {
 
     }
 }
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.deserialize(codec.serialize(root));
