@@ -15,15 +15,12 @@ import java.util.*;
  */
 class Solution {
     public static void main(String[] args) {
-        String a = "hello";
-        String b = "hello";
-        System.out.println(a==b);
-        String c = new String("hello");
-        System.out.println(a==c);
-        StringBuffer d = new StringBuffer("hello");
-        System.out.println(a==d.toString());
-        String e = "he" + "llo";
-        System.out.println(b==e);
+        TreeNode treeNode=new TreeNode(1);
+        treeNode.left=new TreeNode(2);
+        treeNode.right=new TreeNode(3);
+        treeNode.left.left=new TreeNode(4);
+        treeNode.right.right=new TreeNode(5);
+        Arrays.stream(new Solution().levelOrder(treeNode)).forEach(System.out::print);
     }
 
 
