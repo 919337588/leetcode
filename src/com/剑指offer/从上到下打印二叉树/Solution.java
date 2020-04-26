@@ -21,6 +21,8 @@ class Solution {
         treeNode.left.left=new TreeNode(4);
         treeNode.right.right=new TreeNode(5);
         Arrays.stream(new Solution().levelOrder(treeNode)).forEach(System.out::print);
+        HashMap hashMap=new HashMap();
+        hashMap.put(null,"");
     }
 
 
