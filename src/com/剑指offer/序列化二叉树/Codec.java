@@ -1,7 +1,6 @@
 package com.剑指offer.序列化二叉树;
 
 import com.剑指offer.TreeNode;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
 
